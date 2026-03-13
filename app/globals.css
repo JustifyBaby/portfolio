@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:      #0a0a1a;
+  --bg2:     #0f0f2e;
+  --panel:   #111132;
+  --border:  #4444cc;
+  --border2: #2222aa;
+  --gold:    #f0c040;
+  --gold2:   #c8a020;
+  --rpg-white: #e8e8ff;
+  --gray:    #8888cc;
+  --green:   #40e040;
+  --red:     #e04040;
+  --blue:    #4080e0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--rpg-white);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.8;
+  image-rendering: pixelated;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── Scanline overlay ─────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,.12) 2px,
+    rgba(0,0,0,.12) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Stars background ──────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 8%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 45%, rgba(255,255,255,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 75%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 65%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 55%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 90%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(2px 2px at 60% 60%, rgba(200,180,255,.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 20% 85%, rgba(200,180,255,.3) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Panel / pixel border ──────────────────────────── */
+.rpg-panel {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  box-shadow:
+    inset 0 0 0 1px var(--border2),
+    0 0 20px rgba(68,68,204,.25),
+    4px 4px 0 rgba(0,0,0,.5);
+  position: relative;
+}
+
+.rpg-panel::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(100,100,220,.15);
+  pointer-events: none;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg); }
+::-webkit-scrollbar-thumb  { background: var(--border2); }
+::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+/* ── Custom cursor ──────────────────────────────────── */
+.rpg-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  background: var(--gold);
+  animation: blink .6s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink   { 50% { opacity: 0; } }
+@keyframes bob     { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes glow    {
+  from { text-shadow: 0 0 8px rgba(240,192,64,.4), 2px 2px 0 #000; }
+  to   { text-shadow: 0 0 24px rgba(240,192,64,1), 0 0 48px rgba(240,192,64,.4), 2px 2px 0 #000; }
+}
+@keyframes fadeIn  { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes scanIn  { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+@keyframes barGrow { from { width: 0; } to { width: var(--target-w); } }
+@keyframes pulse   { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+
+.animate-blink  { animation: blink  .7s step-end infinite; }
+.animate-bob    { animation: bob    1.2s ease-in-out infinite; }
+.animate-glow   { animation: glow   2s ease-in-out infinite alternate; }
+.animate-fadeIn { animation: fadeIn .3s ease forwards; }
+.animate-scanIn { animation: scanIn .4s ease forwards; }
+.animate-pulse-slow { animation: pulse 1.5s ease-in-out infinite; }
