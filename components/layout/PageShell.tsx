@@ -1,17 +1,17 @@
-import TopBar from '@/components/layout/TopBar'
-import NavBar from '@/components/layout/NavBar'
-import CharacterPanel from '@/components/layout/CharacterPanel'
-import BottomBar from '@/components/layout/BottomBar'
+import TopBar from "@/components/layout/TopBar";
+import NavBar from "@/components/layout/NavBar";
+import CharacterPanel from "@/components/layout/CharacterPanel";
+import BottomBar from "@/components/layout/BottomBar";
 
 interface PageShellProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function PageShell({ children }: PageShellProps) {
   return (
     <div
       className="relative z-10 max-w-[980px] mx-auto px-3 py-4 flex flex-col gap-2"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: "100vh" }}
     >
       <TopBar />
       <NavBar />
@@ -30,5 +30,5 @@ export default function PageShell({ children }: PageShellProps) {
 
       <BottomBar />
     </div>
-  )
+  );
 }
