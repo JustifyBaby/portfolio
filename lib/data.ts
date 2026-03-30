@@ -11,9 +11,10 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "ABOUT", num: "1" },
   { id: "skills", label: "SKILLS", num: "2" },
   { id: "works", label: "WORKS", num: "3" },
-  { id: "contact", label: "CONTACT", num: "4" },
-  { id: "learning", label: "LEARNING", num: "5" },
-  { id: "demo", label: "DEMO", num: "6", beta: true },
+  { id: "dev-url", label: "DEV URLS", num: "4" },
+  { id: "contact", label: "CONTACT", num: "5" },
+  { id: "learning", label: "LEARNING", num: "6" },
+  { id: "demo", label: "DEMO", num: "7", beta: true },
 ];
 
 // ─── Dialog messages ──────────────────────────────────────────────────────────
@@ -39,6 +40,10 @@ export const PAGE_DIALOGS: Record<
   contact: {
     speaker: "▸ INN KEEPER",
     message: "【Contact】のページへ。\n旅人よ、伝令を送りたくば遠慮なく。",
+  },
+  devUrl: {
+    speaker: "▸ DEVELOPER",
+    message: "【Dev URLs】のページへ。\n開発関連のリソースにアクセスできる。",
   },
   learning: {
     speaker: "▸ SAGE",

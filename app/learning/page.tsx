@@ -142,7 +142,9 @@ function EntryCard({ entry }: { entry: LearningEntry }) {
 
 export default function LearningPage() {
   const d = PAGE_DIALOGS.learning;
-  const allCategories = [...new Set(LEARNING_ENTRIES.map((e) => e.category))];
+  const allCategories = Array.from(
+    new Set(LEARNING_ENTRIES.map((e) => e.category)),
+  );
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 

@@ -3,7 +3,15 @@ import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS } from "@/lib/data";
 
-const EXPERIMENTS = [
+type Experiment = {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+  stack: string[];
+};
+
+const EXPERIMENTS: Experiment[] = [
   {
     id: "001",
     title: "AI Text Dungeon",

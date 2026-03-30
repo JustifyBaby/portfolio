@@ -5,7 +5,8 @@ export type PageId =
   | "works"
   | "contact"
   | "demo"
-  | "learning";
+  | "learning"
+  | "dev-url";
 
 export interface NavItem {
   id: PageId;

@@ -1,37 +1,46 @@
+"use client";
+import { useState } from "react";
 import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS } from "@/lib/data";
 
-const CONTACTS = [
-  {
-    icon: "📧",
-    label: "EMAIL",
-    value: "taro@hero.dev",
-    href: "mailto:taro@hero.dev",
-  },
-  {
-    icon: "🐙",
-    label: "GITHUB",
-    value: "github.com/hero-dev",
-    href: "https://github.com",
-  },
-  {
-    icon: "🐦",
-    label: "TWITTER / X",
-    value: "@hero_dev",
-    href: "https://twitter.com",
-  },
-  {
-    icon: "💼",
-    label: "LINKEDIN",
-    value: "linkedin.com/in/hero-dev",
-    href: "https://linkedin.com",
-  },
-];
+type FormState = "idle" | "sending" | "done" | "error";
 
 export default function ContactPage() {
   const d = PAGE_DIALOGS.contact;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<FormState>("idle");
+
+  const handleSubmit = async () => {
+    if (!name || !email || !message) return;
+    setStatus("sending");
+    // TODO: 実際の送信処理（API Route or Resend等）に差し替え
+    await new Promise((r) => setTimeout(r, 1200));
+    setStatus("done");
+  };
+
+  const inputStyle = {
+    width: "100%",
+    background: "rgba(10,10,40,.8)",
+    border: "1px solid var(--border2)",
+    color: "var(--rpg-white)",
+    fontFamily: '"Press Start 2P", monospace',
+    fontSize: "6px",
+    padding: "8px 10px",
+    outline: "none",
+    lineHeight: 2,
+  } as React.CSSProperties;
+
+  const labelStyle = {
+    fontSize: "6px",
+    color: "var(--gray)",
+    display: "block",
+    marginBottom: 4,
+  } as React.CSSProperties;
+
   return (
     <PageShell>
       <DialogBox speaker={d.speaker} message={d.message} />
@@ -39,82 +48,112 @@ export default function ContactPage() {
       <div className="flex-1 overflow-y-auto animate-fadeIn">
         <SectionTitle>◈ SEND MESSAGE</SectionTitle>
 
-        <div className="flex flex-col gap-2" style={{ marginBottom: 16 }}>
-          {CONTACTS.map((c) => (
-            <a
-              key={c.label}
-              href={c.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3"
+        {status === "done" ? (
+          <div
+            style={{
+              border: "1px solid var(--green)",
+              padding: "20px",
+              background: "rgba(10,40,10,.5)",
+              textAlign: "center",
+            }}
+          >
+            <p
               style={{
-                padding: "10px 12px",
-                border: "1px solid var(--border2)",
-                background: "rgba(20,20,60,.5)",
-                textDecoration: "none",
-                transition: "border-color .1s, background .1s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--gold)";
-                (e.currentTarget as HTMLElement).style.background =
-                  "rgba(68,68,204,.15)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--border2)";
-                (e.currentTarget as HTMLElement).style.background =
-                  "rgba(20,20,60,.5)";
+                fontSize: "8px",
+                color: "var(--green)",
+                marginBottom: 10,
               }}
             >
-              <span style={{ fontSize: 18 }}>{c.icon}</span>
-              <div>
-                <p
-                  style={{
-                    fontSize: "5px",
-                    color: "var(--gray)",
-                    marginBottom: 2,
-                  }}
-                >
-                  {c.label}
-                </p>
-                <p style={{ fontSize: "7px", color: "var(--rpg-white)" }}>
-                  {c.value}
-                </p>
-              </div>
-              <span
-                style={{
-                  marginLeft: "auto",
-                  fontSize: "8px",
-                  color: "var(--border)",
+              ✦ MESSAGE SENT!
+            </p>
+            <p
+              style={{ fontSize: "6px", color: "var(--gray)", lineHeight: 2.2 }}
+            >
+              伝令を受け取りました。
+              <br />
+              1〜2営業日以内に返信します。
+            </p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            <div>
+              <label style={labelStyle}>▸ NAME</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name..."
+                style={inputStyle}
+                onFocus={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor =
+                    "var(--gold)";
                 }}
-              >
-                ▶
-              </span>
-            </a>
-          ))}
-        </div>
+                onBlur={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor =
+                    "var(--border2)";
+                }}
+              />
+            </div>
 
-        {/* Availability badge */}
-        <div
-          style={{
-            border: "1px solid var(--green)",
-            padding: "10px 14px",
-            background: "rgba(10,40,10,.5)",
-          }}
-        >
-          <p
-            style={{ fontSize: "6px", color: "var(--green)", marginBottom: 4 }}
-          >
-            <span className="animate-pulse-slow inline-block mr-2">●</span>
-            AVAILABLE FOR QUEST
-          </p>
-          <p style={{ fontSize: "5px", color: "var(--gray)", lineHeight: 2 }}>
-            現在新規のお仕事・コラボレーションを受付中です。
-            <br />
-            お気軽にメッセージをどうぞ。返信は1〜2営業日以内。
-          </p>
-        </div>
+            <div>
+              <label style={labelStyle}>▸ EMAIL</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                style={inputStyle}
+                onFocus={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor =
+                    "var(--gold)";
+                }}
+                onBlur={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor =
+                    "var(--border2)";
+                }}
+              />
+            </div>
+
+            <div>
+              <label style={labelStyle}>▸ MESSAGE</label>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Your message..."
+                rows={5}
+                style={{ ...inputStyle, resize: "vertical" }}
+                onFocus={(e) => {
+                  (e.target as HTMLTextAreaElement).style.borderColor =
+                    "var(--gold)";
+                }}
+                onBlur={(e) => {
+                  (e.target as HTMLTextAreaElement).style.borderColor =
+                    "var(--border2)";
+                }}
+              />
+            </div>
+
+            <button
+              onClick={handleSubmit}
+              disabled={status === "sending" || !name || !email || !message}
+              style={{
+                fontFamily: '"Press Start 2P", monospace',
+                fontSize: "7px",
+                color: "#fff",
+                background:
+                  status === "sending" ? "var(--border2)" : "var(--border)",
+                border: "none",
+                padding: "10px 20px",
+                cursor: status === "sending" ? "not-allowed" : "pointer",
+                boxShadow: "3px 3px 0 rgba(0,0,0,.4)",
+                alignSelf: "flex-start",
+                transition: "background .1s",
+              }}
+            >
+              {status === "sending" ? "▮▮▮ SENDING..." : "▶ SEND MESSAGE"}
+            </button>
+          </div>
+        )}
       </div>
     </PageShell>
   );
