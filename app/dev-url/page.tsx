@@ -1,5 +1,3 @@
-"use client";
-
 import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -49,25 +47,13 @@ export default function DevUrlPage() {
               href={c.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 rpg-btn"
               style={{
                 padding: "10px 12px",
                 border: "1px solid var(--border2)",
                 background: "rgba(20,20,60,.5)",
                 textDecoration: "none",
                 transition: "border-color .1s, background .1s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--gold)";
-                (e.currentTarget as HTMLElement).style.background =
-                  "rgba(68,68,204,.15)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--border2)";
-                (e.currentTarget as HTMLElement).style.background =
-                  "rgba(20,20,60,.5)";
               }}
             >
               <span style={{ fontSize: 18 }}>{c.icon}</span>

@@ -3,6 +3,7 @@ import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS, WORKS } from "@/lib/data";
+import Link from "next/link";
 
 function Stars({ n }: { n: number }) {
   return (
@@ -26,7 +27,7 @@ export default function WorksPage() {
           style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}
         >
           {WORKS.map((work) => (
-            <a
+            <Link
               key={work.title}
               href={work.url ?? "#"}
               target="_blank"
@@ -40,17 +41,7 @@ export default function WorksPage() {
                 transition: "border-color .1s, box-shadow .1s",
                 position: "relative",
               }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--gold)";
-                (e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 0 12px rgba(240,192,64,.3)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--border2)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
-              }}
+              className="rpg-btn"
             >
               {/* stars top-right */}
               <div style={{ position: "absolute", top: 8, right: 8 }}>
@@ -105,7 +96,7 @@ export default function WorksPage() {
                   ))}
                 </div>
               )}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

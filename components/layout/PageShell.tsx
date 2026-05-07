@@ -10,7 +10,7 @@ interface PageShellProps {
 export default function PageShell({ children }: PageShellProps) {
   return (
     <div
-      className="relative z-10 max-w-[980px] mx-auto px-3 py-4 flex flex-col gap-2"
+      className="relative z-10 max-w-6xl mx-auto px-3 py-4 flex flex-col gap-2"
       style={{ minHeight: "100vh" }}
     >
       <TopBar />

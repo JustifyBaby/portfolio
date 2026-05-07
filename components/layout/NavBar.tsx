@@ -30,18 +30,6 @@ export default function NavBar() {
                   textDecoration: "none",
                 }}
               >
-                <span
-                  style={{
-                    position: "absolute",
-                    top: 2,
-                    left: 4,
-                    fontSize: "5px",
-                    color: "var(--gold2)",
-                  }}
-                >
-                  {item.num}
-                </span>
-
                 {isActive && (
                   <span
                     className="animate-blink"
@@ -60,7 +48,7 @@ export default function NavBar() {
 
                 {item.label}
 
-                {item.beta && (
+                {"beta" in item && (
                   <span
                     className="animate-blink ml-1"
                     style={{

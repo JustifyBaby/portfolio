@@ -24,7 +24,7 @@ export default function DialogBox({
         {speaker}
       </p>
       <div
-        className="min-h-[44px]"
+        className="min-h-11"
         style={{ fontSize: "7px", color: "var(--rpg-white)", lineHeight: 2 }}
       >
         {displayed.split("\n").map((line, i) => (

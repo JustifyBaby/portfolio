@@ -7,15 +7,16 @@ import type {
 } from "@/types";
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
-export const NAV_ITEMS: NavItem[] = [
-  { id: "about", label: "ABOUT", num: "1" },
-  { id: "skills", label: "SKILLS", num: "2" },
-  { id: "works", label: "WORKS", num: "3" },
-  { id: "dev-url", label: "DEV URLS", num: "4" },
-  { id: "contact", label: "CONTACT", num: "5" },
-  { id: "learning", label: "LEARNING", num: "6" },
-  { id: "demo", label: "DEMO", num: "7", beta: true },
-];
+export const NAV_ITEMS = [
+  { id: "about", label: "ABOUT" },
+  { id: "skills", label: "SKILLS" },
+  { id: "works", label: "WORKS" },
+  { id: "dev-url", label: "DEV URLS" },
+  { id: "contact", label: "CONTACT" },
+  { id: "learning", label: "LEARNING" },
+  { id: "blog", label: "BLOG" },
+  { id: "demo", label: "DEMO", beta: true },
+] as const satisfies readonly NavItem[];
 
 // ─── Dialog messages ──────────────────────────────────────────────────────────
 export const PAGE_DIALOGS: Record<
@@ -81,47 +82,39 @@ export const SKILLS: Skill[] = [
   { name: "CSS / Tailwind", level: 82, category: "frontend" },
   { name: "Node.js", level: 80, category: "backend" },
   { name: "Python", level: 72, category: "backend" },
-  { name: "PostgreSQL", level: 75, category: "backend" },
-  { name: "Docker / K8s", level: 65, category: "infra" },
-  { name: "AWS / GCP", level: 70, category: "infra" },
-  { name: "Rust", level: 40, category: "other" },
-  { name: "GraphQL", level: 68, category: "backend" },
+  { name: "PostgreSQL", level: 35, category: "backend" },
+  { name: "Docker / K8s", level: 12, category: "infra" },
+  { name: "AWS / GCP", level: 5, category: "infra" },
+  { name: "Rust", level: 30, category: "other" },
 ];
 
 // ─── Works ────────────────────────────────────────────────────────────────────
 export const WORKS: Work[] = [
   {
     tag: "WEB APP",
-    title: "DungeonCMS",
+    title: "future-clock",
     description:
-      "高速な管理画面CMSシステム。Next.js + Prisma + PostgreSQL構成。",
+      "〇時間後の時間を登録して表示する、名前付き世界時計というべきか",
     stars: 4,
-    stack: ["Next.js", "Prisma", "PostgreSQL"],
-    url: "https://github.com",
+    stack: ["Next.js", "Firebase"],
+    url: "https://future-clock-black.vercel.app",
   },
   {
-    tag: "OSS",
-    title: "PixelUtils",
-    description: "画像変換CLIライブラリ。npm累計2万DL達成。",
-    stars: 3,
-    stack: ["Node.js", "TypeScript"],
-    url: "https://github.com",
+    tag: "WEB APP",
+    title: "Kanji Reads",
+    description: "3つのランダムな漢字の列に読み方をつける遊び。",
+    stars: 0,
+    stack: ["Next.js", "Prisma", "PostgreSQL", "Clerk"],
+    url: "nonpublic",
   },
   {
-    tag: "API",
-    title: "DragonAPI",
-    description: "TypeScript製REST/GraphQL双対応API。高スループット設計。",
-    stars: 4,
-    stack: ["TypeScript", "GraphQL", "Fastify"],
-    url: "https://github.com",
-  },
-  {
-    tag: "MOBILE",
-    title: "QuestLog",
-    description: "React Native製習慣記録アプリ。RPG風UIで習慣をクエスト化。",
-    stars: 3,
-    stack: ["React Native", "Expo"],
-    url: "https://github.com",
+    tag: "BASEMENT SYSTEM",
+    title: "Shft App Service",
+    description:
+      "シフトをフォームで取り、スプレッドシートに保存し、それを編集してPDFでシフト表配布。文化祭向け",
+    stars: 0,
+    stack: ["GAS", "clasp"],
+    url: "nonpublic",
   },
 ];
 
@@ -146,34 +139,5 @@ export const LEARNING_ENTRIES: LearningEntry[] = [
       "Partial Prerendering (PPR) が安定版に。静的+動的コンテンツをシームレスに混在させつつ初期表示を高速化できる。",
     tags: ["Next.js", "PPR", "Performance"],
     url: "https://nextjs.org",
-  },
-  {
-    id: "003",
-    date: "2025-02-28",
-    category: "Backend",
-    title: "Bun 1.x の本番利用を試した",
-    summary:
-      "Node.js比で平均3〜4倍の処理速度。特にファイルI/OとHTTPサーバーが高速。package.jsonとの互換性もほぼ問題なし。",
-    tags: ["Bun", "Runtime", "Performance"],
-    url: "https://bun.sh",
-  },
-  {
-    id: "004",
-    date: "2025-02-20",
-    category: "Infra",
-    title: "Cloudflare Workers + D1 でサーバーレスDB",
-    summary:
-      "SQLiteベースのD1がGA。Workers環境から直接SQLが叩けてコールドスタートもゼロに近い。コスト的にも魅力的な選択肢。",
-    tags: ["Cloudflare", "D1", "Edge"],
-    url: "https://cloudflare.com",
-  },
-  {
-    id: "005",
-    date: "2025-02-10",
-    category: "AI/ML",
-    title: "RAGアーキテクチャのベストプラクティス2025",
-    summary:
-      "Hybrid Search（BM25+ベクトル検索）、Re-ranking、Contextual Compressionを組み合わせた高精度RAGの実装パターン。",
-    tags: ["RAG", "LLM", "Vector DB"],
   },
 ];

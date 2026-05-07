@@ -152,17 +152,7 @@ export default function DemoPage() {
                       cursor: "pointer",
                       boxShadow: "3px 3px 0 rgba(0,0,0,.4)",
                     }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.transform =
-                        "translate(-1px,-1px)";
-                      (e.currentTarget as HTMLElement).style.boxShadow =
-                        "4px 4px 0 rgba(0,0,0,.4)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.transform = "";
-                      (e.currentTarget as HTMLElement).style.boxShadow =
-                        "3px 3px 0 rgba(0,0,0,.4)";
-                    }}
+                    className="rpg-btn"
                   >
                     ▶ TRY DEMO
                   </button>

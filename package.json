@@ -9,18 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/postcss": "^4.2.1",
-    "next": "16.1.6",
+    "gray-matter": "^4.0.3",
+    "next": "^16.2.1",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19",
     "react-dom": "^19",
+    "react-hook-form": "^7.73.1",
     "resend": "^6.9.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/mdx": "^2.0.13",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^10",
+    "eslint": "^9.39.4",
     "eslint-config-next": "16.1.6",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",

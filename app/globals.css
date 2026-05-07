@@ -268,3 +268,111 @@ body::after {
 .animate-pulse-slow {
   animation: pulse 1.5s ease-in-out infinite;
 }
+
+/* ── MDX content ───────────────────────────────── */
+.mdx-content h2 {
+  font-size: 9px;
+  color: var(--gold);
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 4px;
+  margin: 16px 0 8px;
+}
+.mdx-content h3 {
+  font-size: 7px;
+  color: var(--gold2);
+  margin: 12px 0 6px;
+}
+.mdx-content p {
+  font-size: 6px;
+  color: var(--rpg-white);
+  line-height: 2.4;
+  margin-bottom: 10px;
+}
+.mdx-content a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue);
+}
+.mdx-content code {
+  font-family: monospace;
+  background: rgba(68, 68, 204, 0.2);
+  border: 1px solid var(--border2);
+  padding: 1px 5px;
+  font-size: 6px;
+  color: var(--green);
+}
+.mdx-content pre {
+  background: rgba(8, 8, 30, 0.9);
+  border: 1px solid var(--border2);
+  padding: 12px;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+.mdx-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.mdx-content ul,
+.mdx-content ol {
+  padding-left: 16px;
+  margin-bottom: 10px;
+}
+.mdx-content li {
+  font-size: 6px;
+  color: var(--rpg-white);
+  line-height: 2.4;
+}
+.mdx-content blockquote {
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+/* globals.css に追記 */
+
+/* カード系（works, blog） */
+.rpg-card {
+  border: 1px solid var(--border2);
+  background: rgba(10, 10, 40, 0.7);
+  transition:
+    border-color 0.1s,
+    box-shadow 0.1s;
+  display: block;
+  text-decoration: none;
+}
+.rpg-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(240, 192, 64, 0.3);
+}
+
+/* contact のリスト項目 */
+.rpg-contact-item {
+  border: 1px solid var(--border2);
+  background: rgba(20, 20, 60, 0.5);
+  transition:
+    border-color 0.1s,
+    background 0.1s;
+}
+
+.rpg-contact-item:hover {
+  border-color: var(--gold);
+  background: rgba(68, 68, 204, 0.15);
+}
+
+/* ボタン系 */
+.rpg-btn {
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+.rpg-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+.rpg-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}

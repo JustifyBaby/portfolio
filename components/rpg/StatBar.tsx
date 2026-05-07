@@ -1,5 +1,3 @@
-"use client";
-
 interface StatBarProps {
   label: string;
   value: number;
@@ -10,7 +8,7 @@ interface StatBarProps {
 export default function StatBar({ label, value, max, color }: StatBarProps) {
   const pct = Math.round((value / max) * 100);
   return (
-    <div className="flex flex-col gap-[3px]">
+    <div className="flex flex-col gap-0.75">
       <span style={{ fontSize: "6px", color: "var(--gray)" }}>{label}</span>
       <div className="flex items-center gap-[6px]">
         <div

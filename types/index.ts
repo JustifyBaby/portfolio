@@ -1,17 +1,12 @@
+import { NAV_ITEMS } from "@/lib/data";
+
 // ─── Navigation ───────────────────────────────────────────────────────────────
-export type PageId =
-  | "about"
-  | "skills"
-  | "works"
-  | "contact"
-  | "demo"
-  | "learning"
-  | "dev-url";
+
+export type PageId = (typeof NAV_ITEMS)[number]["id"];
 
 export interface NavItem {
-  id: PageId;
+  id: string;
   label: string;
-  num: string;
   beta?: boolean;
 }
 

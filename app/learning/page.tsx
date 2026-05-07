@@ -1,10 +1,10 @@
-"use client";
 import { useState } from "react";
 import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS, LEARNING_ENTRIES } from "@/lib/data";
 import type { LearningEntry } from "@/types";
+import Link from "next/link";
 
 const CATEGORY_COLOR: Record<string, string> = {
   "AI/ML": "#c080ff",
@@ -118,7 +118,7 @@ function EntryCard({ entry }: { entry: LearningEntry }) {
 
             {/* Link */}
             {entry.url && (
-              <a
+              <Link
                 href={entry.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -131,7 +131,7 @@ function EntryCard({ entry }: { entry: LearningEntry }) {
                 }}
               >
                 ▶ 参照リンク
-              </a>
+              </Link>
             )}
           </div>
         </div>
