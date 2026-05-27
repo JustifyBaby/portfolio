@@ -1,5 +1,3 @@
-# Not implemented!! In addition, Readme is not written in English so I translate this.
-
 # HERO.DEV — RPG Portfolio 🎮
 
 レトロRPG風
@@ -68,7 +66,7 @@ export const LEARNING_ENTRIES: LearningEntry[] = [
 ### スプライト（ドット絵キャラ）を変更する
 
 `components/rpg/PixelSprite.tsx` の `SPRITE_MAP` を編集。
-8×8 の配列でパレットキー（H:肌, B:青, G:金, W:白, g:グレー, null:透明）を指定。
+8×8 の配列でパレットキー（H:ベージュ, B:青, G:金, W:白, g:グレー, null:透明）を指定。
 
 ### ダイアログ文言を変更する
 
