@@ -5,28 +5,16 @@ import Link from "next/link";
 
 const DEV_URLS = [
   {
-    icon: "📧",
-    label: "EMAIL",
-    value: "justifybaby@hero.dev",
-    href: "mailto:justifybaby@hero.dev",
-  },
-  {
     icon: "🐙",
     label: "GITHUB",
     value: "github.com/JustifyBaby",
     href: "https://github.com/JustifyBaby",
   },
   {
-    icon: "🐦",
-    label: "TWITTER / X",
-    value: "@KATL_RNAV",
-    href: "https://twitter.com/KATL_RNAV",
-  },
-  {
     icon: "💼",
     label: "LINKEDIN",
-    value: "linkedin.com/in/JustifyBaby",
-    href: "https://linkedin.com",
+    value: "linkedin.com/in/justify-baby-b5453a402/",
+    href: "https://linkedin.com/in/justify-baby-b5453a402",
   },
 ];
 
