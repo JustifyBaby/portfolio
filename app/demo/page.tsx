@@ -1,4 +1,3 @@
-import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS } from "@/lib/data";
@@ -47,7 +46,7 @@ const STATUS_COLOR: Record<string, string> = {
 export default function DemoPage() {
   const d = PAGE_DIALOGS.demo;
   return (
-    <PageShell>
+    <div>
       <DialogBox speaker={d.speaker} message={d.message} />
 
       <div className="flex-1 overflow-y-auto animate-fadeIn">
@@ -162,6 +161,6 @@ export default function DemoPage() {
           })}
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }

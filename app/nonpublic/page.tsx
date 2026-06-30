@@ -1,10 +1,9 @@
-import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import Link from "next/link";
 
 export default function NonPublicPage() {
   return (
-    <PageShell>
+    <div>
       <DialogBox
         speaker="▸ GUARD"
         message={"このクエストは現在非公開じゃ。\n冒険者よ、引き返すがよい。"}
@@ -52,6 +51,6 @@ export default function NonPublicPage() {
           ▶ WORKS に戻る
         </Link>
       </div>
-    </PageShell>
+    </div>
   );
 }

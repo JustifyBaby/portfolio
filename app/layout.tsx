@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PageShell from "@/components/layout/PageShell";
 
 export const metadata: Metadata = {
   title: "HERO.DEV — RPG Portfolio",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="max-w-full flex justify-center items-center">
-        {children}
+        <PageShell>{children}</PageShell>
       </body>
     </html>
   );

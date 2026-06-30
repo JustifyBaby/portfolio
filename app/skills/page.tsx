@@ -1,4 +1,3 @@
-import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SkillBar from "@/components/rpg/SkillBar";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -15,7 +14,7 @@ const CATEGORY_NAMES: Record<string, string> = {
 export default function SkillsPage() {
   const d = PAGE_DIALOGS.skills;
   return (
-    <PageShell>
+    <div>
       <DialogBox speaker={d.speaker} message={d.message} />
 
       <div className="flex-1 overflow-y-auto animate-fadeIn">
@@ -51,6 +50,6 @@ export default function SkillsPage() {
           );
         })}
       </div>
-    </PageShell>
+    </div>
   );
 }

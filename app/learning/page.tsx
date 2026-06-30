@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import PageShell from "@/components/layout/PageShell";
+
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS, LEARNING_ENTRIES } from "@/lib/data";
@@ -159,7 +160,7 @@ export default function LearningPage() {
   });
 
   return (
-    <PageShell>
+    <div>
       <DialogBox speaker={d.speaker} message={d.message} />
 
       <div className="flex-1 overflow-y-auto animate-fadeIn flex flex-col gap-3">
@@ -278,6 +279,6 @@ export default function LearningPage() {
           </p>
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }

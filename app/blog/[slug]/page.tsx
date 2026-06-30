@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import PageShell from "@/components/layout/PageShell";
+
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { getPost, getPosts } from "@/lib/posts";
@@ -42,7 +42,7 @@ NOT FOUND OF THIS BLOG
   }
 
   return (
-    <PageShell>
+    <div>
       <DialogBox
         speaker="▸ BARD"
         message={`【${post.title}】\n${post.date} — ${post.category}`}
@@ -74,6 +74,6 @@ NOT FOUND OF THIS BLOG
           <MDXRemote source={post.content} components={components} />
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }

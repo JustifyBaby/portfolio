@@ -1,4 +1,3 @@
-import PageShell from "@/components/layout/PageShell";
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { getPosts } from "@/lib/posts";
@@ -65,7 +64,7 @@ export default async function Blog() {
   const posts = await getPosts();
 
   return (
-    <PageShell>
+    <div>
       <DialogBox
         speaker="▸ BARD"
         message={"【Blog】の書庫へようこそ。\n旅の記録がここに刻まれている。"}
@@ -93,6 +92,6 @@ export default async function Blog() {
           </div>
         )}
       </div>
-    </PageShell>
+    </div>
   );
 }

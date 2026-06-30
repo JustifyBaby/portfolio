@@ -1,5 +1,5 @@
 "use client";
-import PageShell from "@/components/layout/PageShell";
+
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS, WORKS } from "@/lib/data";
@@ -17,7 +17,7 @@ function Stars({ n }: { n: number }) {
 export default function WorksPage() {
   const d = PAGE_DIALOGS.works;
   return (
-    <PageShell>
+    <div>
       <DialogBox speaker={d.speaker} message={d.message} />
 
       <div className="flex-1 overflow-y-auto animate-fadeIn">
@@ -100,6 +100,6 @@ export default function WorksPage() {
           ))}
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }

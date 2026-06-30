@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useActionState, useState } from "react";
-import PageShell from "@/components/layout/PageShell";
+
 import DialogBox from "@/components/rpg/DialogBox";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { PAGE_DIALOGS } from "@/lib/data";
@@ -41,7 +41,7 @@ export default function ContactPage() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   return (
-    <PageShell>
+    <div>
       <DialogBox speaker={d.speaker} message={d.message} />
 
       <div className="flex-1 overflow-y-auto animate-fadeIn">
@@ -219,6 +219,6 @@ export default function ContactPage() {
           </form>
         )}
       </div>
-    </PageShell>
+    </div>
   );
 }

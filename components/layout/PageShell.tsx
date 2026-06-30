@@ -23,9 +23,9 @@ export default function PageShell({ children }: PageShellProps) {
         </div>
 
         {/* Right: page content */}
-        <main className="rpg-panel flex-1 p-4 flex flex-col gap-3 overflow-hidden">
+        <div className="rpg-panel flex-1 p-4 flex flex-col gap-3 overflow-hidden">
           {children}
-        </main>
+        </div>
       </div>
 
       <BottomBar />
